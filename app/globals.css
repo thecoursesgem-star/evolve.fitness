@@ -75,3 +75,24 @@ body {
 .animate-float-y {
   animation: float-y 2s ease-in-out infinite;
 }
+
+/* Spotlight ring pulse for CTA buttons (Idea 4) */
+@keyframes spotlight-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 246, 37, 0.45), 0 0 32px rgba(212, 246, 37, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(212, 246, 37, 0), 0 0 32px rgba(212, 246, 37, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 246, 37, 0), 0 0 32px rgba(212, 246, 37, 0.35);
+  }
+}
+.btn-spotlight {
+  animation: spotlight-ping 2.6s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-spotlight {
+    animation: none;
+  }
+}

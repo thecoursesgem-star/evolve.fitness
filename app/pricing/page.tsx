@@ -3,6 +3,7 @@ import { Check, MessageCircle, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import TiltCard from "@/components/fx/TiltCard";
 import { PLANS, SITE } from "@/data/site";
 
 export default function Pricing() {
@@ -24,6 +25,7 @@ export default function Pricing() {
           <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-14">
             {PLANS.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1} className="h-full">
+                <TiltCard className="h-full">
                 <div
                   className={`rounded-[2rem] p-8 border h-full flex flex-col relative overflow-hidden transition-transform hover:-translate-y-2 duration-300 ${
                     p.featured
@@ -69,6 +71,7 @@ export default function Pricing() {
                     <MessageCircle className="w-4 h-4" /> Join on WhatsApp
                   </a>
                 </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -93,7 +96,7 @@ export default function Pricing() {
                     href={`${SITE.whatsapp}?text=${encodeURIComponent("Assalam-o-Alaikum! I want details about Personal Training at Evolve Fitness.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-volt text-ink font-bold uppercase tracking-wider px-8 py-4 rounded-full hover:bg-white transition-colors"
+                    className="bg-volt text-ink font-bold uppercase tracking-wider px-8 py-4 rounded-full hover:bg-white transition-colors btn-spotlight"
                   >
                     Book Free PT Trial
                   </a>

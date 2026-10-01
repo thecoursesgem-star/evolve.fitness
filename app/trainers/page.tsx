@@ -4,6 +4,7 @@ import { ArrowRight, BadgeCheck } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import TiltCard from "@/components/fx/TiltCard";
 import { TRAINERS } from "@/data/site";
 
 export default function Trainers() {
@@ -25,7 +26,8 @@ export default function Trainers() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
             {TRAINERS.map((t, i) => (
               <Reveal key={t.name} delay={i * 0.1}>
-                <div className="group rounded-3xl overflow-hidden bg-smoke border border-white/5 hover:border-volt/50 transition-all hover:-translate-y-2 duration-300">
+                <TiltCard className="h-full">
+                <div className="group rounded-3xl overflow-hidden bg-smoke border border-white/5 hover:border-volt/50 transition-all hover:-translate-y-2 duration-300 h-full">
                   <div className="relative h-96 overflow-hidden">
                     <Image
                       src={t.image}
@@ -46,6 +48,7 @@ export default function Trainers() {
                     </div>
                   </div>
                 </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -61,7 +64,7 @@ export default function Trainers() {
               </p>
               <Link
                 href="/pricing"
-                className="group inline-flex items-center gap-2 bg-volt text-ink font-bold uppercase tracking-wider px-9 py-4 rounded-full hover:bg-white transition-colors"
+                className="group inline-flex items-center gap-2 bg-volt text-ink font-bold uppercase tracking-wider px-9 py-4 rounded-full hover:bg-white transition-colors btn-spotlight"
               >
                 View PT Packages
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

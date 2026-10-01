@@ -19,6 +19,8 @@ import Reveal from "@/components/Reveal";
 import Counter from "@/components/Counter";
 import Marquee from "@/components/Marquee";
 import SectionHeading from "@/components/SectionHeading";
+import ParticleDumbbell from "@/components/fx/ParticleDumbbell";
+import TiltCard from "@/components/fx/TiltCard";
 import { PROGRAMS, TRAINERS, TESTIMONIALS, PLANS, SITE } from "@/data/site";
 
 const fadeUp = {
@@ -46,6 +48,13 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
         </div>
+
+        {/* 3D particle dumbbell — behind the headline, never over text/buttons */}
+        <div className="absolute inset-y-0 right-0 w-full md:w-[62%] bg-[radial-gradient(ellipse_at_center,rgba(10,10,11,0.62),transparent_70%)] pointer-events-none z-[4]" />
+        <ParticleDumbbell
+          variant="hero"
+          className="absolute inset-y-0 right-0 w-full md:w-[62%] opacity-70 md:opacity-95 pointer-events-none z-[5]"
+        />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 pt-32 pb-20 w-full">
           <motion.div
@@ -86,7 +95,7 @@ export default function Home() {
             <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-4">
               <Link
                 href="/pricing"
-                className="group bg-volt text-ink font-bold uppercase tracking-wider px-8 py-4 rounded-full flex items-center gap-2 hover:bg-white transition-colors"
+                className="group bg-volt text-ink font-bold uppercase tracking-wider px-8 py-4 rounded-full flex items-center gap-2 hover:bg-white transition-colors btn-spotlight"
               >
                 Join Now
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -213,7 +222,8 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
             {PROGRAMS.slice(0, 6).map((p, i) => (
               <Reveal key={p.slug} delay={(i % 3) * 0.1}>
-                <Link href="/programs" className="group block rounded-3xl overflow-hidden bg-ash border border-white/5 hover:border-volt/50 transition-colors">
+                <TiltCard className="h-full">
+                <Link href="/programs" className="group block rounded-3xl overflow-hidden bg-ash border border-white/5 hover:border-volt/50 transition-colors h-full">
                   <div className="relative h-56 overflow-hidden">
                     <Image
                       src={p.image}
@@ -230,6 +240,7 @@ export default function Home() {
                     <p className="text-white/55 text-sm leading-relaxed">{p.desc}</p>
                   </div>
                 </Link>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -251,6 +262,7 @@ export default function Home() {
               { icon: ShieldCheck, t: "Safe & Clean", d: "Hygienic washrooms, sanitized equipment, secure lockers." },
             ].map((f, i) => (
               <Reveal key={f.t} delay={i * 0.1}>
+                <TiltCard className="h-full">
                 <motion.div
                   whileHover={{ y: -8 }}
                   className="bg-smoke border border-white/5 rounded-3xl p-8 h-full hover:border-volt/40 transition-colors"
@@ -261,6 +273,7 @@ export default function Home() {
                   <h3 className="font-display text-xl uppercase mb-3">{f.t}</h3>
                   <p className="text-white/55 text-sm leading-relaxed">{f.d}</p>
                 </motion.div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -288,7 +301,8 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {TRAINERS.map((t, i) => (
               <Reveal key={t.name} delay={i * 0.1}>
-                <motion.div whileHover={{ y: -8 }} className="group rounded-3xl overflow-hidden bg-ash border border-white/5">
+                <TiltCard className="h-full">
+                <motion.div whileHover={{ y: -8 }} className="group rounded-3xl overflow-hidden bg-ash border border-white/5 h-full">
                   <div className="relative h-80 overflow-hidden">
                     <Image
                       src={t.image}
@@ -303,6 +317,7 @@ export default function Home() {
                     </div>
                   </div>
                 </motion.div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -351,6 +366,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
             {PLANS.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
+                <TiltCard className="h-full">
                 <motion.div
                   whileHover={{ y: -8 }}
                   className={`rounded-3xl p-8 border h-full flex flex-col ${
@@ -389,6 +405,7 @@ export default function Home() {
                     View Details
                   </Link>
                 </motion.div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -420,7 +437,7 @@ export default function Home() {
                 href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-volt text-ink font-bold uppercase tracking-wider px-9 py-4 rounded-full hover:bg-white transition-colors"
+                className="bg-volt text-ink font-bold uppercase tracking-wider px-9 py-4 rounded-full hover:bg-white transition-colors btn-spotlight"
               >
                 WhatsApp Us
               </a>

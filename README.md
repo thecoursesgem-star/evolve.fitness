@@ -39,6 +39,10 @@ To use a custom domain later: Vercel dashboard → your project → **Settings �
 - Photos: `public/images/` (replace the JPGs, keep the same file names)
 - Colors: `tailwind.config.ts` (`volt`, `ink`, `smoke`, `ash`)
 - Fonts: `app/layout.tsx`
+- 3D effects: `components/fx/` — `ParticleDumbbell.tsx` (hero + subpage 3D dumbbell),
+  `SiteDust.tsx` (floating dust on every page), `TiltCard.tsx` (3D tilt on cards).
+  The pulsing ring on Join buttons is the `btn-spotlight` class in `app/globals.css`.
+  All effects auto-reduce on mobile and turn off for `prefers-reduced-motion`.
 
 ## Notes
 

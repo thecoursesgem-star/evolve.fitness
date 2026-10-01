@@ -4,6 +4,7 @@ import { Check, ArrowRight, CalendarDays } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import TiltCard from "@/components/fx/TiltCard";
 import { PROGRAMS, SCHEDULE, SITE } from "@/data/site";
 
 export default function Programs() {
@@ -20,6 +21,7 @@ export default function Programs() {
         <div className="max-w-7xl mx-auto px-5 grid md:grid-cols-2 gap-8">
           {PROGRAMS.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.12}>
+              <TiltCard className="h-full">
               <div className="group bg-smoke border border-white/5 rounded-[2rem] overflow-hidden hover:border-volt/40 transition-colors h-full">
                 <div className="relative h-64 overflow-hidden">
                   <Image
@@ -56,6 +58,7 @@ export default function Programs() {
                   </a>
                 </div>
               </div>
+              </TiltCard>
             </Reveal>
           ))}
         </div>
@@ -100,7 +103,7 @@ export default function Programs() {
           <Reveal delay={0.2} className="text-center mt-12">
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 bg-volt text-ink font-bold uppercase tracking-wider px-9 py-4 rounded-full hover:bg-white transition-colors"
+              className="inline-flex items-center gap-2 bg-volt text-ink font-bold uppercase tracking-wider px-9 py-4 rounded-full hover:bg-white transition-colors btn-spotlight"
             >
               See Membership Plans <ArrowRight className="w-5 h-5" />
             </Link>
